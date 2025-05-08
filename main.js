@@ -1,7 +1,7 @@
 const grid = document.querySelector("#grid");
 
 function createGrid(size = 16){
-    // clearGrid();
+    emptyGrid();
 
     for(let i=0; i<size; i++){
         let row = document.createElement("div");
@@ -20,13 +20,13 @@ function createGrid(size = 16){
     }
 }
 
-// function clearGrid(){
-//     let rows = document.querySelectorAll("row");
-//     let gridElems = document.querySelectorAll("grid-elem");
+function emptyGrid(){
+    let rows = document.querySelectorAll("div .row");
+    let gridElems = document.querySelectorAll("div .grid-elem");
 
-//     gridElems.forEach(gridElem => gridElem.remove());
-//     rows.forEach(row => row.remove());
-// }
+    gridElems.forEach(gridElem => gridElem.remove());
+    rows.forEach(row => row.remove());
+}
 
 document.addEventListener("DOMContentLoaded", ()=>createGrid());
 
