@@ -1,6 +1,8 @@
 const grid = document.querySelector("#grid");
 const chooseSize = document.querySelector("#size");
 const clearGridBtn = document.querySelector("#clear");
+const colorPicker = document.querySelector("#color");
+
 let currentSize = 16;
 
 
@@ -19,7 +21,7 @@ function createGrid(size = 16){
             gridElem.className = "grid-elem";
 
             gridElem.addEventListener("mousedown", function(){
-                gridElem.style.backgroundColor = "blue";
+                gridElem.style.backgroundColor = colorPicker.value;
             })
 
             row.appendChild(gridElem);
