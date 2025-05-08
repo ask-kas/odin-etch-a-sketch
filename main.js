@@ -2,7 +2,9 @@ const grid = document.querySelector("#grid");
 const chooseSize = document.querySelector("#size");
 const clearGridBtn = document.querySelector("#clear");
 const colorPicker = document.querySelector("#color");
+const randomColorBtn = document.querySelector("#random-color");
 
+let randomColor = false;
 let currentSize = 16;
 
 
@@ -20,8 +22,8 @@ function createGrid(size = 16){
             let gridElem = document.createElement("div");
             gridElem.className = "grid-elem";
 
-            gridElem.addEventListener("mousedown", function(){
-                gridElem.style.backgroundColor = colorPicker.value;
+            gridElem.addEventListener("mouseover", function(){
+                gridElem.style.backgroundColor = getColor();
             })
 
             row.appendChild(gridElem);
@@ -37,6 +39,15 @@ function emptyGrid(){
     gridElems.forEach(gridElem => gridElem.remove());
     rows.forEach(row => row.remove());
 }
+
+randomColorBtn.addEventListener("click", ()=>(randomColor = !randomColor));
+
+function getColor(){
+    if(randomColor){return `rgb(${Math.floor(Math.random() * 256)}, 
+    ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`}
+    return colorPicker.value;
+}
+
 
 clearGridBtn.addEventListener("click", ()=>clearGrid());
 

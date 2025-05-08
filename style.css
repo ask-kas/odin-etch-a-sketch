@@ -4,6 +4,10 @@ body{
     align-items: center;
 }
 
+h1{
+    margin: 0px;
+}
+
 #grid{
     width: 500px;
     height: 500px;
@@ -26,7 +30,7 @@ body{
 }
 
 #size{
-    margin-top: 25px;
+    margin-bottom: 25px;
     padding: 8px 16px;
     background-color: aqua;
 }
@@ -37,6 +41,7 @@ body{
     background-color: rgb(202, 217, 34);
 }
 
-#color{
-    
+#random-color{
+    padding: 8px 16px;
+    background-color: #E0218A;
 }
