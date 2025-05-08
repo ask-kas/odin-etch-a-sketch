@@ -30,3 +30,9 @@ body{
     padding: 8px 16px;
     background-color: aqua;
 }
+
+#clear{
+    margin-top: 25px;
+    padding: 8px 16px;
+    background-color: rgb(202, 217, 34);
+}

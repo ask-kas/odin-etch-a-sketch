@@ -1,6 +1,14 @@
 const grid = document.querySelector("#grid");
+const chooseSize = document.querySelector("#size");
+const clearGridBtn = document.querySelector("#clear");
+let currentSize = 16;
+
 
 function createGrid(size = 16){
+    if(size === null){
+        return null;
+    }
+
     emptyGrid();
 
     for(let i=0; i<size; i++){
@@ -28,18 +36,28 @@ function emptyGrid(){
     rows.forEach(row => row.remove());
 }
 
+clearGridBtn.addEventListener("click", ()=>clearGrid());
+
+function clearGrid(){
+    let gridElems = document.querySelectorAll("div .grid-elem");
+
+    gridElems.forEach(gridElem => gridElem.style.backgroundColor = "white");
+}
+
 document.addEventListener("DOMContentLoaded", ()=>createGrid());
 
-const chooseSize = document.querySelector("#size");
+chooseSize.addEventListener("click", function(e){
+    if(createGrid(getSize()) === null){
+        e.stopImmediatePropagation();
+    }
 
-chooseSize.addEventListener("click", ()=>createGrid(getSize()));
+});
 
 function getSize(){
     let input = prompt("Enter a number between 1 and 100");
 
     if (input === null) {
-        // User clicked cancel — stop the recursion or return a special value
-        return null;
+       return null;
     }
 
     let size = parseInt(input);
